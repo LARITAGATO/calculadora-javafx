@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+
+<!--
+  CALCULADORA SENCILLA CON COLORES (todo el estilo esta aqui, en el atributo style de cada elemento).
+  Estructura:
+    VBox      -> apila de arriba hacia abajo: la pantalla y la cuadricula de botones
+    TextField -> la pantalla (fx:id="pantalla" para que el controlador pueda leerla y escribirla)
+    GridPane  -> cuadricula de 4 columnas con los botones
+  Colores (paleta Bootstrap):
+    #6f42c1 morado = numeros     #fd7e14 naranja = operaciones
+    #dc3545 rojo   = C (limpiar) #198754 verde   = igual
+  Cada Button llama a un metodo del controlador con onAction="#nombreDelMetodo".
+-->
+<VBox spacing="12.0" style="-fx-padding: 16; -fx-background-color: #212529;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.javafxexample.CalculadoraController">
+   <children>
+      <!-- Pantalla: no se puede escribir a mano, solo con los botones -->
+      <TextField fx:id="pantalla" editable="false" alignment="CENTER_RIGHT" minWidth="286.0" prefWidth="286.0" maxWidth="286.0" style="-fx-font-size: 36px; -fx-background-color: #343a40; -fx-text-fill: white; -fx-background-radius: 12; -fx-padding: 10;" />
+      <GridPane hgap="10.0" vgap="10.0">
+         <columnConstraints>
+            <ColumnConstraints minWidth="64.0" prefWidth="64.0" />
+            <ColumnConstraints minWidth="64.0" prefWidth="64.0" />
+            <ColumnConstraints minWidth="64.0" prefWidth="64.0" />
+            <ColumnConstraints minWidth="64.0" prefWidth="64.0" />
+         </columnConstraints>
+         <children>
+                  <Button maxWidth="Infinity" onAction="#onLimpiar" style="-fx-min-width: 64; -fx-min-height: 64; -fx-pref-height: 64; -fx-font-size: 22px; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-weight: bold; -fx-background-color: #dc3545;" text="C" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.rowIndex="0" />
+                  <Button onAction="#onDividir" style="-fx-min-width: 64; -fx-min-height: 64; -fx-pref-height: 64; -fx-font-size: 22px; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-weight: bold; -fx-background-color: #fd7e14; -fx-font-size: 26px;" text="÷" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                  <Button onAction="#onNumero" style="-fx-min-width: 64; -fx-min-height: 64; -fx-pref-height: 64; -fx-font-size: 22px; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-weight: bold; -fx-background-color: #6f42c1;" text="7" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                  <Button onAction="#onNumero" style="-fx-min-width: 64; -fx-min-height: 64; -fx-pref-height: 64; -fx-font-size: 22px; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-weight: bold; -fx-background-color: #6f42c1;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button onAction="#onNumero" style="-fx-min-width: 64; -fx-min-height: 64; -fx-pref-height: 64; -fx-font-size: 22px; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-weight: bold; -fx-background-color: #6f42c1;" text="9" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button onAction="#onMultiplicar" style="-fx-min-width: 64; -fx-min-height: 64; -fx-pref-height: 64; -fx-font-size: 22px; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-weight: bold; -fx-background-color: #fd7e14; -fx-font-size: 26px;" text="×" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Button onAction="#onNumero" style="-fx-min-width: 64; -fx-min-height: 64; -fx-pref-height: 64; -fx-font-size: 22px; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-weight: bold; -fx-background-color: #6f42c1;" text="4" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                  <Button onAction="#onNumero" style="-fx-min-width: 64; -fx-min-height: 64; -fx-pref-height: 64; -fx-font-size: 22px; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-weight: bold; -fx-background-color: #6f42c1;" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button onAction="#onNumero" style="-fx-min-width: 64; -fx-min-height: 64; -fx-pref-height: 64; -fx-font-size: 22px; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-weight: bold; -fx-background-color: #6f42c1;" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Button onAction="#onRestar" style="-fx-min-width: 64; -fx-min-height: 64; -fx-pref-height: 64; -fx-font-size: 22px; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-weight: bold; -fx-background-color: #fd7e14; -fx-font-size: 26px;" text="−" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <Button onAction="#onNumero" style="-fx-min-width: 64; -fx-min-height: 64; -fx-pref-height: 64; -fx-font-size: 22px; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-weight: bold; -fx-background-color: #6f42c1;" text="1" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                  <Button onAction="#onNumero" style="-fx-min-width: 64; -fx-min-height: 64; -fx-pref-height: 64; -fx-font-size: 22px; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-weight: bold; -fx-background-color: #6f42c1;" text="2" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Button onAction="#onNumero" style="-fx-min-width: 64; -fx-min-height: 64; -fx-pref-height: 64; -fx-font-size: 22px; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-weight: bold; -fx-background-color: #6f42c1;" text="3" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <Button onAction="#onSumar" style="-fx-min-width: 64; -fx-min-height: 64; -fx-pref-height: 64; -fx-font-size: 22px; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-weight: bold; -fx-background-color: #fd7e14; -fx-font-size: 26px;" text="+" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <Button maxWidth="Infinity" onAction="#onNumero" style="-fx-min-width: 64; -fx-min-height: 64; -fx-pref-height: 64; -fx-font-size: 22px; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-weight: bold; -fx-background-color: #6f42c1;" text="0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+                  <Button onAction="#onNumero" style="-fx-min-width: 64; -fx-min-height: 64; -fx-pref-height: 64; -fx-font-size: 22px; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-weight: bold; -fx-background-color: #6f42c1;" text="." GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <Button onAction="#onIgual" style="-fx-min-width: 64; -fx-min-height: 64; -fx-pref-height: 64; -fx-font-size: 22px; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-weight: bold; -fx-background-color: #198754; -fx-font-size: 26px;" text="=" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+         </children>
+      </GridPane>
+   </children>
+</VBox>
